@@ -1,0 +1,11 @@
+Checklist Builder for School Camps
+Copyright (c) 2026 alex26262. Licensed under the MIT License (see LICENSE).
+
+This skill bundles third-party material:
+
+assets/icons/*.png
+  Rendered from Noto Emoji SVG images (https://github.com/googlefonts/noto-emoji,
+  directory 2D/svg, commit e20cbc2b).
+  Copyright 2013 Google, Inc. All Rights Reserved.
+  Licensed under the Apache License, Version 2.0 (see assets/icons/LICENSE-APACHE-2.0.txt).
+  Modifications: rasterized from SVG to 256x256 PNG and renamed by category.
