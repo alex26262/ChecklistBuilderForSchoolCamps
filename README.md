@@ -1,6 +1,6 @@
 # Checklist Builder for School Camps
 
-An agent skill (SKILL.md) that turns a camp or school-trip packing list into ready-to-print documents, and keeps every event's source documents and generated files in their own folder so you never grab the wrong checklist.
+An agent skill (SKILL.md) that turns a camp or school-trip packing list into ready-to-print documents, and - when the agent works in your folders - keeps every event's source documents and generated files in their own folder so you never grab the wrong checklist.
 
 Works with Claude (claude.ai, Claude Code) and other agents that support the SKILL.md format.
 
@@ -10,6 +10,8 @@ Works with Claude (claude.ai, Claude Code) and other agents that support the SKI
 - **Luggage tags** — an A4 sheet of 6 tags (78×43 mm each, with a cut guide) showing the child's name, parent phone numbers and the event's location.
 
 ## Folder structure it maintains
+
+Used when the agent works in a folder on your computer (Claude Code, Cursor, ...). In chat apps such as claude.ai you simply download the files.
 
 ```
 your-project/
@@ -39,7 +41,7 @@ Copy the folder into the agent's skills directory (see your agent's documentatio
 
 Then ask, for example: *"Make a packing checklist from this camp letter"* or *"Make luggage tags for Ana Smith"*.
 
-On claude.ai, mention Word or the skill name (*"Use the checklist-builder-for-school-camps skill to make a Word checklist..."*); otherwise Claude may answer with an on-screen page instead of the Word files.
+**On claude.ai, ask for the skill by name** - for example *"Use the checklist-builder-for-school-camps skill to make a packing checklist from this camp letter"*. Without the name, claude.ai may answer with its own built-in Word or on-screen tools instead of this skill.
 
 ## Requirements
 
