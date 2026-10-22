@@ -27,6 +27,8 @@ Trigger phrases:
 
 ## Folder organization
 
+First check where you work. In a cloud sandbox - e.g. claude.ai, where attachments arrive in `/mnt/user-data/uploads/` and your own folders look like `/home/claude` - the user cannot open your folders, not even ones you create: follow the sandbox rule below and don't create event folders there.
+
 When you work directly in a folder the user can open on their own computer (Claude Code, Cursor, a desktop app with a connected folder, ...), everything is organized **per event**, so the wrong checklist/tag never gets used by mistake:
 
 - `_New_Input/` (or an equivalent "new input" folder) — where the user drops information about an upcoming event (PDFs, emails, packing lists) before a dedicated folder exists for it.
@@ -36,7 +38,7 @@ When you work directly in a folder the user can open on their own computer (Clau
 - `_Template_Event/` — a template folder to copy for every new event (create it on first use if it doesn't exist yet).
 - `_Archive/` — where finished events get moved, to keep the top level clean.
 
-**Chat apps with a sandbox (e.g. claude.ai):** the user cannot see the sandbox's folders - they only get the files you hand over. There, skip the event folders: build the files in a scratch folder, deliver them as downloads, and never mention internal paths. Put the event name in the file names to keep events apart.
+**Chat apps with a sandbox (e.g. claude.ai):** the user cannot see the sandbox's folders - they only get the files you hand over. There, skip the event folders: build the files in a scratch folder, deliver them as downloads, and never write file paths in your reply - name the files only. Put the event name in the file names to keep events apart.
 
 Flow (local folder): user drops information into the "new input" folder → asks for the checklist/tags to be generated → the event folder is created/identified, the content is copied unchanged into `input/`, deliverables are generated into `output/` → the user empties the "new input" folder manually before the next event.
 
