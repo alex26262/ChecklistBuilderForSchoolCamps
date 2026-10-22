@@ -21,7 +21,7 @@ Trigger phrases:
 - "make luggage tags [for <child name>]"
 - "I dropped new info about an event, organize it"
 
-**Language:** write the checklist and tags in the language the user writes to you in this conversation - not the language of the source documents. A French-speaking user with an English camp letter gets a French checklist; translate the items faithfully. If the user explicitly asks for a language, use that one. With no conversation to go by, use English.
+**Language:** write the checklist and tags in the language the user writes to you in this conversation - not the language of the source documents. A French-speaking user with an English camp letter gets a French checklist; translate the items faithfully. If the user explicitly asks for a language, use that one. With no conversation to go by, use English. Write the language correctly, with its diacritics (e.g. Romanian ă, â, î, ș, ț), even when the user types without them.
 
 ---
 
