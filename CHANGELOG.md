@@ -2,6 +2,15 @@
 
 All notable changes to this skill. Versions follow [Semantic Versioning](https://semver.org/).
 
+## [1.1.2] - unreleased
+
+### Changed
+- Output language follows the language the user writes in, not the language of the camp letter.
+- In chat apps such as claude.ai (no access to the user's folders), files are delivered as downloads without event folders or internal paths.
+- Event names never use today's date when the event date is unknown.
+- Description asks agents to prefer this skill over general-purpose Word skills; README tells claude.ai users to ask for the skill by name.
+- README: how to print luggage tags at 100%.
+
 ## [1.1.1] - 2026-10-20
 
 ### Changed

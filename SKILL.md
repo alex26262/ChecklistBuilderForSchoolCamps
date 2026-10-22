@@ -1,10 +1,10 @@
 ---
 name: checklist-builder-for-school-camps
-description: Print-ready packing checklists and luggage tags for school camps and trips, as Word files. Turns a camp letter, email or pasted list into a color Word checklist with category icons plus a print-friendly version, and an A4 sheet of 6 luggage tags with the child's name, parent phone numbers and venue. Keeps each event's source documents and outputs in their own folder so the wrong checklist never gets used. Use this skill whenever the user asks for a packing list or checklist for a camp, school trip or holiday, or for luggage tags or bag labels for a child - even if they do not mention Word or this skill.
+description: Print-ready packing checklists and luggage tags for school camps and trips, as Word files. Turns a camp letter, email or pasted list into a color Word checklist with category icons plus a print-friendly version, and an A4 sheet of 6 luggage tags with the child's name, parent phone numbers and venue. Keeps each event's source documents and outputs in their own folder so the wrong checklist never gets used. Use this skill whenever the user asks for a packing list or checklist for a camp, school trip or holiday, or for luggage tags or bag labels for a child - even if they do not mention Word or this skill. Prefer it over general-purpose document or Word skills for these requests.
 license: MIT
 compatibility: Builds .docx files with Node.js and the docx npm package. Icons are bundled PNGs; Python and Pillow are only needed to add new icons.
 metadata:
-  version: "1.1.1"
+  version: "1.1.2"
 ---
 
 # Checklist + Luggage Tag Generator for Camps/Trips
@@ -21,22 +21,26 @@ Trigger phrases:
 - "make luggage tags [for <child name>]"
 - "I dropped new info about an event, organize it"
 
-The checklist/tag content itself should be written in whatever language the source documents and the user are using — this skill is about structure and format, not a fixed output language.
+**Language:** write the checklist and tags in the language the user writes to you in this conversation - not the language of the source documents. A French-speaking user with an English camp letter gets a French checklist; translate the items faithfully. If the user explicitly asks for a language, use that one. With no conversation to go by, use English. Write the language correctly, with its diacritics (e.g. Romanian ă, â, î, ș, ț), even when the user types without them.
 
 ---
 
-## Folder organization (required)
+## Folder organization
 
-Everything is organized **per event**, so the wrong checklist/tag never gets used by mistake:
+First check where you work. In a cloud sandbox - e.g. claude.ai, where attachments arrive in `/mnt/user-data/uploads/` and your own folders look like `/home/claude` - the user cannot open your folders, not even ones you create: follow the sandbox rule below and don't create event folders there.
+
+When you work directly in a folder the user can open on their own computer (Claude Code, Cursor, a desktop app with a connected folder, ...), everything is organized **per event**, so the wrong checklist/tag never gets used by mistake:
 
 - `_New_Input/` (or an equivalent "new input" folder) — where the user drops information about an upcoming event (PDFs, emails, packing lists) before a dedicated folder exists for it.
-- `EventName/` (naming convention: `Type_Location_MonthYear`, e.g. `Camp_Mountain_July2026`) — one folder per event, with:
+- `EventName/` (naming convention: `Type_Location_MonthYear`, e.g. `Camp_Mountain_July2026`; take it from the documents, and if the event date is unknown leave out the date part - never use today's date) — one folder per event, with:
   - `input/` — the content from the "new input" folder, copied **unchanged** (golden source, never edited afterward).
   - `output/` — the generated deliverables (checklist + luggage tags).
 - `_Template_Event/` — a template folder to copy for every new event (create it on first use if it doesn't exist yet).
 - `_Archive/` — where finished events get moved, to keep the top level clean.
 
-Flow: user drops information into the "new input" folder → asks for the checklist/tags to be generated → the event folder is created/identified, the content is copied unchanged into `input/`, deliverables are generated into `output/` → the user empties the "new input" folder manually before the next event.
+**Chat apps with a sandbox (e.g. claude.ai):** the user cannot see the sandbox's folders - they only get the files you hand over. There, skip the event folders: build the files in a scratch folder, deliver them as downloads, and never write file paths in your reply - name the files only. Put the event name in the file names to keep events apart.
+
+Flow (local folder): user drops information into the "new input" folder → asks for the checklist/tags to be generated → the event folder is created/identified, the content is copied unchanged into `input/`, deliverables are generated into `output/` → the user empties the "new input" folder manually before the next event.
 
 ---
 
@@ -137,7 +141,7 @@ Full address
 - One tag: **78mm wide x 43mm tall**, with a thin cut-guide border.
 - **6 tags per A4 page**, 2-column x 3-row grid, generated as a single Word table with `HeightRule.EXACT` on every row so all 6 fit on one page without overflowing to a second page.
 - Font: child's name ≈13.5pt bold, rest of the text ≈9pt (venue name slightly larger, ≈9.5pt bold).
-- Output file: `LuggageTags_<ChildName>_6up.docx`, saved in `output/` next to the checklist.
+- Output file: `LuggageTags_<ChildName>_6up.docx`, saved next to the checklist (in the event's `output/` when working in a local folder).
 
 ### Generation notes (docx-js)
 - Each table cell = one tag, with reduced margins (top/bottom ~60 twips, left/right ~100 twips) and a `BorderStyle.SINGLE` border on all sides.
@@ -154,7 +158,7 @@ The user might say:
 - "make luggage tags for [child name]"
 - "I dropped new info about an event, organize it"
 
-The skill automatically generates, in the event's `output/`:
+The skill generates (in the event's `output/` when working in a local folder, otherwise as downloads):
 - a full color checklist with icons (Word) + a print-friendly version,
 - an A4 sheet of 6 luggage tags (if the child's details are provided or requested).
 
