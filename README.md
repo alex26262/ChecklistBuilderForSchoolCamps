@@ -43,6 +43,10 @@ Then ask, for example: *"Make a packing checklist from this camp letter"* or *"M
 
 **On claude.ai, ask for the skill by name** - for example *"Use the checklist-builder-for-school-camps skill to make a packing checklist from this camp letter"*. Without the name, claude.ai may answer with its own built-in Word or on-screen tools instead of this skill.
 
+## Printing at the right size
+
+Luggage tags only come out at 78 x 43 mm when the page prints at 100%: in Word, File > Print > Scale to Paper Size > **No Scaling**, with A4 paper in Word and in the printer settings (no "Fit to page"). Tags about 6% smaller (for example 7.35 x 4.1 cm) mean the page was shrunk - fix these settings and print again.
+
 ## Requirements
 
 - Node.js with the `docx` package (`npm install docx`) to build the Word files.
