@@ -2,7 +2,7 @@
 
 All notable changes to this skill. Versions follow [Semantic Versioning](https://semver.org/).
 
-## [1.1.2] - unreleased
+## [1.1.2] - 2026-10-22
 
 ### Changed
 - Output language follows the language the user writes in, not the language of the camp letter.
