@@ -3,6 +3,7 @@
 An agent skill (SKILL.md) that turns a camp or school-trip packing list into ready-to-print documents, and - when the agent works in your folders - keeps every event's source documents and generated files in their own folder so you never grab the wrong checklist.
 
 Works with Claude (claude.ai, Claude Code) and other agents that support the SKILL.md format.
+https://www.agensi.io/skills/camp-school-trip-packing-checklist-luggage-tags-word
 
 ## What it produces, per event
 
